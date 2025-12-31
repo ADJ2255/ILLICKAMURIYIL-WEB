@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ILLICKAMURIYIL</title>
+<style>
+:root {
+  --color1: #0A1931; /* header and popup background */
+  --color2: #B3CFE5;
+  --color3: #4A7FA7;
+  --color4: #1A3D63;
+  --color5: #F6FAFD;
+  --color6: #FFD700; /* gold */
+  --heading-dark: #0f1f3a;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: var(--color5);
+  color: var(--color4);
+}
+
+/* ===== HEADER ===== */
+header {
+  background-color: var(--color1);
+  color: var(--color5);
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+header h1 {
+  color: var(--color5);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav a { margin-left: 1em; font-weight: bold; color: var(--color5); }
+nav a:hover { color: var(--color2); }
+
+body { padding-top: 80px; } /* space for fixed header */
+
+/* ===== FULL WIDTH WELCOME ===== */
+#welcome {
+  width: 100vw;
+  height: 100vh;
+  background: url('images/IMG_2162.JPG') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#welcome h1 {
+  color: var(--color6); /* gold */
+  font-size: 3em;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+#welcome p {
+  color: var(--color5);
+  font-size: 1.5em;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+/* ===== ABOUT SECTION STYLING ===== */
+#about p {
+  font-size: 1.3em;              /* Increases text size */
+  line-height: 1.8;              /* Adds smooth spacing for easy reading */
+  color: var(--color4);          /* Keeps the elegant blue-gray tone */
+  text-align: justify;           /* Makes paragraph edges even and classy */
+  font-family: 'Georgia', serif; /* Gives a royal, traditional look */
+  font-weight: 500;
+}
+
+#about h2 {
+  font-size: 2em;
+  color: var(--color1);          /* Deep royal blue for heading */
+  text-align: center;
+  margin-bottom: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid var(--color6); /* gold underline */
+  display: inline-block;
+  padding-bottom: 0.3em;
+}
+
+
+/* ===== OTHER SECTIONS ===== */
+section:not(#welcome) {
+  padding: 3em 2em;
+  max-width: 1000px;
+  margin: auto;
+  background-color: var(--color5);
+}
+
+#gallery { background-color: var(--color2); }
+#events, #rememberance, #guestbook, #contact { background-color: var(--color5); }
+
+footer { background-color: var(--color1); color: var(--color5); text-align: center; padding: 2em; }
+
+/* ===== GALLERY ===== */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 1em; }
+.gallery-grid img { width: 100%; height: auto; border: 3px solid var(--color3); border-radius: 8px; cursor: pointer; opacity: 0; animation: fadeIn 0.5s forwards; }
+@keyframes fadeIn { to { opacity: 1; } }
+
+#lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1em;
+  overflow-y: auto;
+}
+#lightbox img {
+  max-width: 100%;
+  height: auto;
+  border: 5px solid var(--color5);
+  border-radius: 10px;
+}
+
+/* ===== REMEMBRANCE ===== */
+.remember-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5em; }
+.remember-card {
+  background-color: var(--color2);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.remember-card:hover { transform: scale(1.05); }
+.remember-card img { width: 100%; height: 250px; object-fit: cover; }
+.remember-card h3 { text-align: center; color: var(--heading-dark); padding: 0.5em; }
+
+/* Lightbox for remembrance details */
+#rememberLightbox {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  overflow-y: auto;
+  padding: 2em;
+}
+#rememberLightbox div {
+  background-color: var(--color1);
+  padding: 2em;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+#rememberLightbox img {
+  width: 100%;
+  height: auto; /* maintain aspect ratio */
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+#rememberLightbox h2 { color: var(--color6); margin-bottom: 10px; } /* bright gold for name */
+#rememberLightbox p { color: var(--color5); } /* white for details */
+
+/* ===== GUESTBOOK ===== */
+#guestbook input, #guestbook textarea {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1em;
+  padding: 0.7em;
+  border-radius: 5px;
+  border: 1px solid var(--color3);
+  font-size: 1em;
+}
+#guestbook button { display: block; margin-bottom: 2em; }
+#guestList { list-style: none; padding: 0; max-width: 600px; margin: auto; }
+#guestList li {
+  background-color: var(--color2);
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  margin-bottom: 0.8em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ===== EVENTS ===== */
+#events p { text-align: center; font-weight: bold; font-size: 1.2em; color: var(--color4); }
+
+/* ====== RESPONSIVE ===== */
+@media (max-width: 768px) { 
+  nav { display: flex; flex-direction: column; align-items: flex-start; }
+  nav a { margin: 0.5em 0; }
+  #welcome h1 { font-size: 2em; }
+  #welcome p { font-size: 1.2em; }
+  #rememberLightbox div { padding: 1em; }
+  #rememberLightbox img { max-height: 300px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ILLICKAMURIYIL</h1>
+  <nav>
+    <a href="#welcome">Welcome</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#events">Events</a>
+    <a href="#rememberance">In Remembrance</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="welcome">
+  <h1>WELCOME TO ILLICKAMURIYIL FAMILY</h1>
+  <p>Generations pass, but a family's legacy is eternal.</p>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>The Illickamuriyil Family is a name woven with legacy, love, and honor — a lineage that carries the spirit of togetherness through generations. Our roots run deep in tradition, faith, and respect, forming the foundation of a family bound not just by blood, but by values and memories that time cannot fade.<p></p>
+
+<p>From the noble footsteps of our forefathers to the vibrant presence of the new generation, Illickamuriyil stands as a symbol of grace, strength, and unity. Each stone of our ancestral home echoes stories of courage, compassion, and devotion — reminders of a past that continues to guide our future.</p>
+<p>We take pride in being part of a heritage that celebrates both simplicity and dignity — a family where every gathering is filled with warmth, laughter, and gratitude. The bond we share is our true wealth, and the name Illickamuriyil shines as a crown of love passed down through time.
+May the spirit of our ancestors continue to bless us, and may the Illickamuriyil legacy live on — timeless, royal, and ever united.</p>
+</section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-grid" id="galleryGrid">
+    <img src="images/IMG_7361.JPG" alt="Photo 1">
+    <img src="images/IMG_7342.JPG" alt="Photo 2">
+    <img src="images/WhatsApp Image 2025-10-20 at 12.13.58 AM.jpeg" alt="Photo 3">
+   
+
+<style>
+.video-box {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Video Styling */
+.video-box video {
+  width: 100%;
+  height: 200px;        /* fixed height for consistent look */
+  object-fit: cover;    /* crop edges slightly, keeps it clean */
+  display: block;
+  border-radius: 12px;
+}
+</style>
+
+
+    
+
+  </div>
+</section>
+
+<section id="events">
+  <h2>Events</h2>
+  <p>NO UPCOMING EVENTS</p>
+</section>
+
+<section id="rememberance">
+  <h2>In Remembrance</h2>
+  <div class="remember-grid">
+  
+    <div class="remember-card" onclick="showRemember('JOSEPH  DOMINIC', 'Remembered for her strength, grace, and love that bound our family together.', 'images/Joseph dominic.jpg')">
+      <img src="images/Joseph dominic.jpg" alt="JOSEPH DOMINIC">
+      <h3>JOSEPH  DOMINIC</h3>
+    </div>
+    <div class="remember-card" onclick="showRemember('ALEYAMMA DOMINIC', 'Remembered for her strength, grace, and love that bound our family together.', 'images/Aleyama dominic.jpg')">
+      <img src="images/Aleyama dominic.jpg" alt="ALEYAMMA DOMINIC">
+      <h3>ALEYAMMA DOMINIC</h3>
+    </div>
+      <div class="remember-card" onclick="showRemember('DOMINIC DEVASIA', 'to be added ', 'images/Devisa.png')">
+      <img src="images/Devisa.png" alt="DOMINIC DEVASIA">
+      <h3>DOMINIC DEVASIA</h3>
+    </div>
+    <div class="remember-card" onclick="showRemember('ID JOSEPH', 'to be added ', 'images/ID joseph.jpg')">
+      <img src="images/ID joseph.jpg" alt="ID JOSEPH">
+      <h3>ID JOSEPH</h3>
+    </div>
+        <div class="remember-card" onclick="showRemember('MARIAMMA JOSEPH', 'to be added ', 'images/Mariyama joseph.JPG')">
+      <img src="images/Mariyama joseph.JPG" alt="MARIAMMA JOSEPH">
+      <h3>MARIAMMA JOSEPH</h3>
+    </div>
+    <div class="remember-card" onclick="showRemember('ALEYKUTTY DOMINIC', 'to be added ', 'images/Aleykuty.jpg')">
+      <img src="images/Aleykuty.jpg" alt="ALEYKUTTY DOMINIC">
+      <h3>ALEYKUTTY DOMINIC </h3>
+    </div>
+       <div class="remember-card" onclick="showRemember('PHILIP THOMAS ', 'to be added ', 'images/Phlip.jpg')">
+      <img src="images/Phlip.jpg" alt="PHILIP THOMAS ">
+      <h3>PHILIP THOMAS </h3>
+    </div>
+       <div class="remember-card" onclick="showRemember('THOMAS SEBASTIAN', 'to be added ', 'images/Thomas sebastian.JPG')">
+      <img src="images/Thomas sebastian.JPG" alt="THOMAS SEBASTIAN">
+      <h3>THOMAS SEBASTIAN </h3>
+    </div>
+       <div class="remember-card" onclick="showRemember('INDU THOMAS', 'to be added ', 'images/Indu sebastian.JPG')">
+      <img src="images/Indu sebastian.JPG" alt="INDU THOMAS">
+      <h3>INDU THOMAS </h3>
+    </div>
+ <div class="remember-card" onclick="showRemember('FR.CYPRIAN', 'to be added ', 'images/FR Cyprian.JPG')">
+      <img src="images/FR Cyprian.JPG" alt="FR.CYPRIAN">
+      <h3>FR.CYPRIAN</h3>
+    </div>
+ <div class="remember-card" onclick="showRemember('ID DOMINIC', 'A pioneer whose hard work and vision helped build the Illickamuriyil legacy.', 'images/ID Dominic.JPG')">
+      <img src="images/ID Dominic.JPG" alt="ID DOMINIC">
+      <h3>ID DOMINIC</h3>
+    </div>
+      <div class="remember-card" onclick="showRemember('MARIAMMA DOMINIC', 'to be added ', 'images/Valsamma dominic.JPG')">
+      <img src="images/Valsamma dominic.JPG" alt="MARIAMMA DOMINIC">
+      <h3>MARIAMMA DOMINIC</h3>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email us at <a href="mailto:amaldjofficial@gmail.com">amaldjofficial@gmail.com</a></p>
+  <p>Instagram <a href="https://www.instagram.com/amal_dj_adj?igsh=b2VkcmM2b2w1Nzdp&utm_source=qr" target="_blank">amal_dj_adj</a></p>
+</section>
+
+<footer>&copy; ADJ</footer>
+
+<div id="lightbox" onclick="this.style.display='none'"><img id="lightboxImg"></div>
+<div id="rememberLightbox" onclick="hideRemember(event)">
+  <div id="rememberDetails" onclick="event.stopPropagation()"></div>
+</div>
+
+<script>
+// GALLERY LIGHTBOX
+const galleryGrid = document.getElementById('galleryGrid');
+galleryGrid.querySelectorAll('img').forEach(img=>{
+  img.onclick = ()=>{ 
+    document.getElementById('lightbox').style.display='flex'; 
+    document.getElementById('lightboxImg').src=img.src; 
+  };
+});
+
+// REMEMBRANCE POPUP
+function showRemember(name, detail, photo){
+  const box=document.getElementById('rememberLightbox');
+  document.getElementById('rememberDetails').innerHTML=`
+    <img src="${photo}">
+    <h2>${name}</h2>
+    <p>${detail}</p>`;
+  box.style.display='flex';
+}
+function hideRemember(event){
+  if(event.target.id === 'rememberLightbox'){
+    document.getElementById('rememberLightbox').style.display='none';
+  }
+}
+
+// GUESTBOOK
+
+</script>
+</body>
+</html>
