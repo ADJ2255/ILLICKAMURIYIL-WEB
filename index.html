@@ -66,7 +66,7 @@ body { padding-top:80px; }
 #welcome {
   width:100%;
   height:100vh;
-  background:url('images/IMG_2162.JPG') no-repeat center center;
+  background:url('./images/IMG_2162.JPG') no-repeat center center;
   background-size:cover;
   display:flex;
   flex-direction:column;
@@ -77,14 +77,18 @@ body { padding-top:80px; }
 
 #welcome h1 {
   color:var(--color6);
-  font-size:3em;
+  /* font-size:3em; */
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
   text-shadow:2px 2px 8px rgba(0,0,0,.7);
+  padding: 0 1rem;
 }
 
 #welcome p {
   color:var(--color5);
-  font-size:1.5em;
+  /* font-size:1.5em; */
+  font-size: clamp(1rem, 3vw, 1.6rem);
   text-shadow:2px 2px 6px rgba(0,0,0,.6);
+  padding: 0 1rem;
 }
 
 /* ===== SECTIONS ===== */
@@ -237,9 +241,10 @@ May the spirit of our ancestors continue to bless us, and may the Illickamuriyil
 <section id="gallery">
   <h2>Gallery</h2>
   <div class="gallery-grid" id="galleryGrid">
-    <img src="images/IMG_7361.JPG">
-    <img src="images/IMG_7342.JPG">
-    <img src="images/WhatsApp Image 2025-10-20 at 12.13.58 AM.jpeg">
+    <img src="./images/IMG_7361.JPG">
+    <img src="./images/IMG_7342.JPG">
+    <img src="./images/WhatsApp Image 2025-10-20 at 12.13.58 AM.jpeg">
+    <img src="./images/OLDIMG.jpg">
   </div>
 </section>
 
@@ -252,52 +257,56 @@ May the spirit of our ancestors continue to bless us, and may the Illickamuriyil
   <h2>In Remembrance</h2>
   <div class="remember-grid">
 
-    <div class="remember-card" onclick="showRemember('JOSEPH DOMINIC','Remembered for strength and love','images/Joseph dominic.jpg')">
-      <img src="images/Joseph dominic.jpg"><h3>JOSEPH DOMINIC</h3>
+    <div class="remember-card" onclick="showRemember('I.D DEVASIA','Remembered for strength and love','./images/ID DEVSIA.jpg')">
+      <img src="./images/ID DEVSIA.jpg"><h3>I.D DEVASIA</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('ALEYAMMA DOMINIC','Forever in our hearts','images/Aleyama dominic.jpg')">
-      <img src="images/Aleyama dominic.jpg"><h3>ALEYAMMA DOMINIC</h3>
+    <div class="remember-card" onclick="showRemember('JOSEPH DOMINIC','Remembered for strength and love','./images/Joseph dominic.jpg')">
+      <img src="./images/Joseph dominic.jpg"><h3>JOSEPH DOMINIC</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('DOMINIC DEVASIA','To be added','images/Devisa.png')">
-      <img src="images/Devisa.png"><h3>DOMINIC DEVASIA</h3>
+    <div class="remember-card" onclick="showRemember('ALEYAMMA DOMINIC','Forever in our hearts','./images/Aleyama dominic.jpg')">
+      <img src="./images/Aleyama dominic.jpg"><h3>ALEYAMMA DOMINIC</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('ID JOSEPH','To be added','images/ID joseph.jpg')">
-      <img src="images/ID joseph.jpg"><h3>ID JOSEPH</h3>
+    <div class="remember-card" onclick="showRemember('SHAJI','To be added','./images/Devisa.png')">
+      <img src="./images/Devisa.png"><h3>SHAJI </h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('MARIAMMA JOSEPH','To be added','images/Mariyama joseph.JPG')">
-      <img src="images/Mariyama joseph.JPG"><h3>MARIAMMA JOSEPH</h3>
+    <div class="remember-card" onclick="showRemember('ID JOSEPH','To be added','./images/ID joseph.jpg')">
+      <img src="./images/ID joseph.jpg"><h3>ID JOSEPH</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('ALEYKUTTY DOMINIC','To be added','images/Aleykuty.jpg')">
-      <img src="images/Aleykuty.jpg"><h3>ALEYKUTTY DOMINIC</h3>
+    <div class="remember-card" onclick="showRemember('MARIAMMA JOSEPH','To be added','./images/Mariyama joseph.JPG')">
+      <img src="./images/Mariyama joseph.JPG"><h3>MARIAMMA JOSEPH</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('PHILIP THOMAS','To be added','images/Phlip.jpg')">
-      <img src="images/Phlip.jpg"><h3>PHILIP THOMAS</h3>
+    <div class="remember-card" onclick="showRemember('ALEYKUTTY DOMINIC','To be added','./images/Aleykuty.jpg')">
+      <img src="./images/Aleykuty.jpg"><h3>ALEYKUTTY DOMINIC</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('THOMAS SEBASTIAN','To be added','images/Thomas_sebastian.JPG')">
-      <img src="images/Thomas_sebastian.JPG"><h3>THOMAS SEBASTIAN</h3>
+    <div class="remember-card" onclick="showRemember('PHILIP ILLICK','To be added','./images/Phlip.jpg')">
+      <img src="./images/Phlip.jpg"><h3>PHILIP ILLICK</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('INDU THOMAS','To be added','images/Indu_sebastian.JPG')">
-      <img src="images/Indu_sebastian.JPG"><h3>INDU THOMAS</h3>
+    <div class="remember-card" onclick="showRemember('THOMAS SEBASTIAN','To be added','./images/Thomas sebastian.jpg')">
+      <img src="./images/Thomas sebastian.jpg"><h3>THOMAS SEBASTIAN</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('FR. CYPRIAN','To be added','images/FR Cyprian.JPG')">
-      <img src="images/FR Cyprian.JPG"><h3>FR. CYPRIAN</h3>
+    <div class="remember-card" onclick="showRemember('INDU THOMAS','To be added','./images/Indu sebastian.jpg')">
+      <img src="./images/Indu sebastian.jpg"><h3>INDU THOMAS</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('ID DOMINIC','A pioneer of the family legacy','images/ID Dominic.JPG')">
-      <img src="images/ID Dominic.JPG"><h3>ID DOMINIC</h3>
+    <div class="remember-card" onclick="showRemember('FR. CYPRIAN','To be added','./images/FR Cyprian.JPG')">
+      <img src="./images/FR Cyprian.JPG"><h3>FR. CYPRIAN</h3>
     </div>
 
-    <div class="remember-card" onclick="showRemember('MARIAMMA DOMINIC','To be added','images/Valsamma dominic.JPG')">
-      <img src="images/Valsamma dominic.JPG"><h3>MARIAMMA DOMINIC</h3>
+    <div class="remember-card" onclick="showRemember('ID DOMINIC','A pioneer of the family legacy','./images/ID Dominic.JPG')">
+      <img src="./images/ID Dominic.JPG"><h3>ID DOMINIC</h3>
+    </div>
+
+    <div class="remember-card" onclick="showRemember('MARIAMMA DOMINIC','To be added','./images/Valsamma dominic.JPG')">
+      <img src="./images/Valsamma dominic.JPG"><h3>MARIAMMA DOMINIC</h3>
     </div>
 
   </div>
